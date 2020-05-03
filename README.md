@@ -68,7 +68,7 @@ Usage
     venv/bin/python3 decrypticon.py \
       --mode online \
       --apk example/test_project/love.apk \
-      --hooks example/test_project/hooks \
+      --hooks hooks \
       --out example/test_project/annotated \
       --focus_pkg com/afjoseph/test
     ```
