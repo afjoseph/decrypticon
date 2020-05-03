@@ -35,7 +35,7 @@ Dependencies
 
 Usage
 -----
-* Make a `hooks` file that consists of the functions you want to monitor. [An example exists here](https://github.com/afjoseph/decrypticon/blob/4602460/example/test_project/hooks#L1). You can find signture using either `apktool` or `radare2`:
+* Make a `hooks` file that consists of the functions you want to monitor. [An example exists here](https://github.com/afjoseph/decrypticon/blob/c1173ed/example/test_project/hooks#L1). You can find signture using either `apktool` or `radare2`:
 
     ```
     Lcom/afjoseph/test/Cryptor;->get(III)Ljava/lang/String;
@@ -73,7 +73,7 @@ Usage
       --focus_pkg com/afjoseph/test
     ```
 
-The above flow is exactly how the [test script](https://github.com/afjoseph/decrypticon/blob/4602460/#L1) looks like.
+The above flow is exactly how the [test script](https://github.com/afjoseph/decrypticon/blob/c1173ed/#L1) looks like.
 
 #### Offline Mode
 Sometimes, you'd want to save the results of the marked functions (which the project identifies as _recorded invocations_). The `--pickle_to` flag can _pickle_ (Python term for "serialize") all recorded invocations in a file, which you can replay at any time later.
@@ -95,7 +95,7 @@ Run `./scripts/run_test_suite.rb`. This is also a good location to see how the p
 
 Real-life Use Case
 ------------------
-Take the [following Java code](https://github.com/afjoseph/decrypticon/blob/4602460/example/test_project/app/src/main/java/com/afjoseph/test/MainActivity.java#L25):
+Take the [following Java code](https://github.com/afjoseph/decrypticon/blob/c1173ed/example/test_project/app/src/main/java/com/afjoseph/test/MainActivity.java#L25):
 
     Map<String, String> params = new HashMap<>();
     String address_1 = Cryptor.get(30, 20, 100);
