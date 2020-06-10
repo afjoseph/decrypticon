@@ -121,7 +121,7 @@ die! 'Failed to extract' unless system "xz -fd #{downloaded_file_name}"
 
 frida_server_file_name = downloaded_file_name.gsub('.xz', '')
 die! 'Couldnt push server...' unless system "adb -s #{device_id} push #{frida_server_file_name} /data/local/tmp"
-die! 'Couldnt chmod server...' unless system "adb -s #{device_id} shell chmod u+x /data/local/tmp/#{frida_server_file_name}"
+die! 'Couldnt chmod server...' unless system "adb -s #{device_id} shell chmod 777 /data/local/tmp/#{frida_server_file_name}"
 
 log_info 'Running server in a forked process...'
 Process.fork do
