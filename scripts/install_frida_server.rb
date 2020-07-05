@@ -89,6 +89,8 @@ if system 'frida-ps -U >/dev/null 2>&1'
 end
 
 die! 'Cannot root device' unless system("adb -s #{device_id} root")
+# Sleep a bit after rooting device until device comes back online
+sleep 5
 
 frida_version = `frida --version`.chomp
 arch = `adb -s #{device_id} shell getprop ro.product.cpu.abi`.chomp
@@ -127,6 +129,9 @@ log_info 'Running server in a forked process...'
 Process.fork do
   die! 'Couldnt run server...' unless system "adb -s #{device_id} shell /data/local/tmp/#{frida_server_file_name}"
 end
+
+# Sleep for a bit to give time for the server to run
+sleep 5
 
 die! 'Server failed to run' unless system 'frida-ps -U >/dev/null 2>&1'
 

@@ -61,7 +61,11 @@ Dir.chdir "#{__dir__}/.." do
     die! unless system('./scripts/run_avd.sh --android_api_level=28 --headless')
   end
 
-  sleep 60
+  # Sleep for a bit until emulator is online
+  # This should not be necessary since run_avd.sh does this
+  # but, it's just as a precaution to make sure everything runs
+  # smoothly
+  sleep 20
 
   log_info 'Running frida server...'
   die! unless system('./scripts/install_frida_server.rb')
@@ -78,11 +82,12 @@ Dir.chdir "#{__dir__}/.." do
   --apk #{apk_path} \
   --hooks example/test_project/hooks \
   --timeout 10 \
-  --out example/test_project/annotated \
+  --out example/test_project/tmp_smalied \
   --focus_pkg com/afjoseph/test --pickle_to example/test_project/pickles")
 
-  search_file = File.expand_path(Dir.glob('example/test_project/annotated/**/MainActivity.smali')[0])
+  search_file = Dir.glob('example/test_project/tmp_smalied/**/MainActivity.smali')[0]
   die! 'Couldnt find MainActivity.smali in annotated path' if search_file.nil?
+  search_file = File.expand_path(search_file)
   log_info "Found file to search: #{search_file}"
 
   inc = 0
