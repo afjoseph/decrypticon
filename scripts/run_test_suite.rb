@@ -65,14 +65,14 @@ Dir.chdir "#{__dir__}/.." do
   # This should not be necessary since run_avd.sh does this
   # but, it's just as a precaution to make sure everything runs
   # smoothly
-  sleep 20
+  sleep 30
 
   log_info 'Running frida server...'
   die! unless system('./scripts/install_frida_server.rb')
 
   log_info 'Setting up Decrypticon...'
   unless Dir.exist? 'venv'
-    die! unless system('virtualenv -p python3 --no-site-packages venv')
+    die! unless system('virtualenv -p python3 venv')
     die! unless system('venv/bin/pip3 install -r requirements.txt')
   end
 

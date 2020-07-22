@@ -1,3 +1,8 @@
+### Decrypticon 1.0.3 (22nd July 2020)
+* [scripts] Add more sleeps and fix old virtualenv command
+
+---
+
 ### Decrypticon 1.0.2 (5th July 2020)
 * [scripts] Add more sleeps and fix broken names
 * [virtualenv] Add missing requirements
