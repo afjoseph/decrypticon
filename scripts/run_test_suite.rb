@@ -83,7 +83,7 @@ Dir.chdir "#{__dir__}/.." do
   --hooks example/test_project/hooks \
   --timeout 10 \
   --out example/test_project/tmp_smalied \
-  --focus_pkg com/afjoseph/test --pickle_to example/test_project/pickles")
+  --focus_pkg com/afjoseph/test --pickle_to example/test_project/pickles 2>&1")
 
   search_file = Dir.glob('example/test_project/tmp_smalied/**/MainActivity.smali')[0]
   die! 'Couldnt find MainActivity.smali in annotated path' if search_file.nil?
