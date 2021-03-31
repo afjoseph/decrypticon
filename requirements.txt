@@ -24,7 +24,7 @@ prompt-toolkit==3.0.3
 ptpython==3.0.0
 ptyprocess==0.6.0
 py==1.8.0
-Pygments==2.5.2
+Pygments==2.7.4
 pyparsing==2.4.5
 pytest==5.3.1
 six==1.13.0
